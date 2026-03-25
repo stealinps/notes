@@ -1,0 +1,129 @@
+Made by Syazwan in Neovim
+
+##Chapter 1: Intro to DSA Analysis
+#Problem Solving 
+-Problem is solved via programming by dividing it into segment of modules
+-Modules is consist of:
+	-Single Function
+	-Method of class
+	-Class
+	-Other Functions
+-A good solution is made of:
+	-Data Organized to make operations simpler
+	-Mutable
+	-Connected Algorithm
+#Algorithms
+-Step by step procedure/sequence/instructions to solve a problem
+-Expressed in various notations such as natural language,flowcharts and psuedocode
+-By using concepts in CS and Mathematics
+
+#Elements of Algorithms:
+Input-External value
+Output-Results of an algorithm
+Definiteness-Statements must be deteministic
+Finiteness-Results must be finite
+
+#Algorithm is structured like this:
+-Input
+-Process
+-Output
+
+#Types of algorithm:
+Sequential
+Selection/Conditional
+Repitition/Looping
+
+#Data Structures
+-To store data
+-Choosing the right data structures allows a program to take fewer resources, less execution time and low memory space
+-Operations with data structures includes:
+	1.Traversing
+	2.Insertion
+	3.Searching
+	4.Deletion
+	5.Sorting
+	6.Merging
+
+	 Static-Array
+        /
+  Linear
+ /      \
+DS       Dynamic-Stack/Queue/Linked-List
+ \
+ Non-Linear-Tree/Graph
+
+#Data Types
+-Bool,int,float,double,char,string
+-Structured data type:
+	-Array(1 data type)
+	-Struct(Multiple data type)
+
+#Linear data structure:
+With restriction
+-queue(FIFO)
+-stack(LIFO)
+
+No restriction
+-unsorted linked list
+-sorted linked list
+
+#Non linear data structure
+-Binary Tree
+-Graph
+
+#Queue
+-First element added will be the first to be removed
+#Stack
+-Last element added will be the first to be removed
+#Linked List
+-Sequence of nodes stored at non-contagious memory locations
+-Links/References toward next/previous nodes
+-Sorted:Data stores in asc/des order
+-Unsorted:Linked with no order
+#Tree
+-Represent hierarchical nature of a structure in graphical form
+-Top:Root node Bottom:Leaf node
+-Each node has at most two children
+#Graph
+-Consists of vertices and edges connecting nodes
+-Network(route)
+
+#ADVANTAGES OF DS
+-Efficient Data Organization
+-Improved Code Readability
+-Efficient Algorithm
+-Reduced Complexity
+-Enchanced Search and Retrieval
+-Dynamic Memory Management
+
+#Efficient Coding Approaches
+1. Efficiency
+2. Code Readability
+3. Modularity
+4. Code Reusability
+5. Error Handling
+6. Optimzed Data Structures
+7. Memory Management
+8. Testing and Debugging
+9. Documentation
+10. Code Review
+11. Version Control
+12. Performance Optimization
+13. Scalability
+14. Security Considerations
+15. Continuous Improvement
+
+
+#Big O notation
+-Measures the efficiency of an algorithm when the input grows commonly annotate by "n"
+-O(1),O(log n),O(n),O(nlogn),O(n²),O(2^n),O(n!)
+
+#Time complexity
+-Measured in unit of steps/How many steps it took to complete the algorithm
+-O(1) means instantly
+-O(n) means it grows linearly 
+-O(log n) means it grows slower than O(n) [aka logarithmictically]
+-O(n²) means it grows quadratically
+-O(nlogn) means it grows faster than O(log n) but slower than O(n²)
+-O(2^n) means it grows exponentially faster than O(n²)
+-O(n!) grows faster than O(2^n) at big n value
