@@ -1,5 +1,6 @@
 Made by Syazwan in Neovim
 
+
 ##Chapter 1: Intro to DSA Analysis
 #Problem Solving 
 -Problem is solved via programming by dividing it into segment of modules
@@ -34,8 +35,9 @@ Selection/Conditional
 Repitition/Looping
 
 #Data Structures
--To store data
+-A data structure is a way to organize and store data so a program can use it efficiently
 -Choosing the right data structures allows a program to take fewer resources, less execution time and low memory space
+-Data structure includes:Array,Queue,Stack,Linked List, Hash map and etc
 -Operations with data structures includes:
 	1.Traversing
 	2.Insertion
