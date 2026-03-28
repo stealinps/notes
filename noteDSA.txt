@@ -129,3 +129,95 @@ No restriction
 -O(nlogn) means it grows faster than O(log n) but slower than O(n²)
 -O(2^n) means it grows exponentially faster than O(n²)
 -O(n!) grows faster than O(2^n) at big n value
+
+##CHAPTER 2
+#Fundamental to C++
+
+Print numbers from 1 to 10
+-instead of using print for each numbers, we instead use loops
+
+#include <iostream>
+int main(){
+	std::cout<<"Hello world!";
+	for(int i=0;i<10;i++){
+		std::cout<<(i+1)<<"\n";
+	}
+}
+
+Print numbers from 0 to 50 for
+
+ODD numbers only:
+for(int i=0;i<=50;i++){
+	if(i%2!=0){
+		std::cout<<i<<std::endl;
+	}
+
+Even numbers only:
+for(int i=0;i<=50;i++){
+	if(i%2==0){
+		std::cout<<i<<std::endl;
+	}
+
+
+0 for ascending
+1 for descending
+
+#include <iostream>
+int main(){
+	std::cout<<"Hello world!"<<std::endl;
+	int n;
+	std::cout<<"Enter 0 for asc/1 for des"<<std::endl;
+	std::cin>>n; 
+	if(n!=0&&n!=1){
+	std::cout<<"Invalid order";
+	return 1;}
+	if(n==0){
+		for(int i=0;i<=50;i++){
+			std::cout<<i<<std::endl;
+	}
+}
+	else{
+		for(int i=50;i>=0;i--){
+			std::cout<<i<<std::endl;
+	}
+}
+}
+
+BMI Calculator
+
+
+#include <iostream>
+int main(){
+	double weight;
+	double height;
+	double bmi;
+	std::string message[]={"Underweight","Normal weight","Overweight","Obesity class I","Obesity class II","Obesity class III"};
+	std::string status;
+	std::cout<<"height(cm): ";
+	std::cin>>height;
+	height=height/100;
+	std::cout<<"weight(kg): ";
+	std::cin>>weight;
+	bmi=weight/(height*height);
+	std::cout<<"Your BMI is "<<bmi;
+	if(bmi<18.5){
+		status=message[0];
+	}
+	else if(bmi<25){
+		status=message[1];
+	}
+	else if(bmi<30){
+		status=message[2];
+	}
+	else if(bmi<35){
+		status=message[3];
+	}
+	else if(bmi<40){
+		status=message[4];
+	}
+	else{
+		status=message[5];
+	}
+	std::cout<<" "<<status;
+}
+
