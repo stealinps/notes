@@ -25,13 +25,13 @@ Extra
 	-Connected Algorithm
 #Algorithms
 -Step by step procedure/sequence/instructions to solve a problem
--Expressed in various notations such as natural language,flowcharts and psuedocode
+-Expressed in various notations such as natural language,flowcharts and pseudocode
 -By using concepts in CS and Mathematics
 
 #Elements of Algorithms:
 Input-External value
 Output-Results of an algorithm
-Definiteness-Statements must be deteministic
+Definiteness-Statements must be deterministic
 Finiteness-Results must be finite
 
 #Algorithm is structured like this:
@@ -42,7 +42,7 @@ Finiteness-Results must be finite
 #Types of algorithm:
 Sequential
 Selection/Conditional
-Repitition/Looping
+Repetition/Looping
 
 #Data Structures
 -A data structure is a way to organize and store data so a program can use it efficiently
@@ -88,7 +88,7 @@ No restriction
 #Stack
 -Last element added will be the first to be removed
 #Linked List
--Sequence of nodes stored at non-contagious memory locations
+-Sequence of nodes stored at non-contiguous memory locations
 -Links/References toward next/previous nodes
 -Sorted:Data stores in asc/des order
 -Unsorted:Linked with no order
@@ -105,7 +105,7 @@ No restriction
 -Improved Code Readability
 -Efficient Algorithm
 -Reduced Complexity
--Enchanced Search and Retrieval
+-Enhanced Search and Retrieval
 -Dynamic Memory Management
 
 #Efficient Coding Approaches
@@ -114,7 +114,7 @@ No restriction
 3. Modularity
 4. Code Reusability
 5. Error Handling
-6. Optimzed Data Structures
+6. Optimized Data Structures
 7. Memory Management
 8. Testing and Debugging
 9. Documentation
@@ -134,7 +134,7 @@ No restriction
 -Measured in unit of steps/How many steps it took to complete the algorithm
 -O(1) means instantly
 -O(n) means it grows linearly 
--O(log n) means it grows slower than O(n) [aka logarithmictically]
+-O(log n) means it grows slower than O(n) [aka logarithmically]
 -O(n²) means it grows quadratically
 -O(nlogn) means it grows faster than O(log n) but slower than O(n²)
 -O(2^n) means it grows exponentially faster than O(n²)
@@ -161,6 +161,7 @@ for(int i=0;i<=50;i++){
 	if(i%2!=0){
 		std::cout<<i<<std::endl;
 	}
+}
 
 Even numbers only:
 for(int i=0;i<=50;i++){
@@ -244,17 +245,17 @@ Index
 
 display all content of array A with size 8
 for(i=0;i<8;i++){
-	cout<<A[i]<<endl;
+	std::cout<<A[i]<<std::endl;
 }
 
 display odd index only
 for(i=1;i<8;i+=2){
-	cout<<A[i];
+	std::cout<<A[i];
 }
 
 display even index only
 for(i=0;i<8;i+=2){
-	cout<<A[i];
+	std::cout<<A[i];
 }
 
 sum of A
@@ -266,7 +267,6 @@ for(i=0;i<8;i++){
 mean
 for(i=0;i<length;i++){
 	sum=sum+A[i];
-	n++
 }
 mean=sum/length;
 
