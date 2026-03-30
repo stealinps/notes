@@ -194,6 +194,18 @@ int main(){
 }
 }
 
+#include <iostream>
+int main(){
+	int n=0;
+	int i=0;
+	while(n<=20){
+		std::cout<<n<<" "<<(50-i)<<std::endl;
+		n++;
+		i=i+2;
+
+	}
+}
+
 BMI Calculator
 
 
@@ -238,7 +250,7 @@ Array
 -Used for organizing and managing data efficiently
 -Arrays includes Elements,Index and Size
 
-Index
+Index:
 -Index starts at 0
 -Element are accessible by index
 -Index is basically the "address" of the elements inside the array
@@ -270,3 +282,15 @@ for(i=0;i<length;i++){
 }
 mean=sum/length;
 
+Static and Dynamic  Arrays
+
+Static have fixed size 
+Dynamic have variable size
+Dynamic arrays offer flexibility however it requires memory management to avoid memory leak and run time error
+
+example of dynamic array:
+int *ArrayB;
+ArrayB=new int[20];
+int *ArrayC;
+int size=100;
+ArrayC=new int[size];
