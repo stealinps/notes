@@ -1,15 +1,8 @@
 Made by Syazwan in Neovim
-Chapter 1 12
-Chapter 2 143
-Chapter 3 292
-Chapter 4
-Chapter 5
-Chapter 6
-Chapter 7
-Chapter 8
-Chapter 9
-Chapter 10
-Extra
+Chapter 1  5  |Chapter 2 136 |Chapter 3 285
+Chapter 4     |Chapter 5     |Chapter 6
+Chapter 7     |Chapter 8     |Chapter 9
+Chapter 10    |Extra
 
 ##Chapter 1: Intro to DSA Analysis
 #Problem Solving 
