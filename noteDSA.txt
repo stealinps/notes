@@ -1,7 +1,7 @@
 Made by Syazwan in Neovim
 Chapter 1 12
 Chapter 2 143
-Chapter 3 243
+Chapter 3 292
 Chapter 4
 Chapter 5
 Chapter 6
@@ -336,6 +336,67 @@ Dynamic arrays offer flexibility however it requires memory management to avoid 
 example of dynamic array:
 int *ArrayB;
 ArrayB=new int[20];
+
 int *ArrayC;
 int size=100;
 ArrayC=new int[size];
+
+Array Operations:
+
+Move and Swap
+-Move:copying elements from one location to another
+-Swap:exchanges position between 2 elements of array
+
+Intra-Array:
+-aka Single Array Traversing
+-traverse->access each element sequentially
+-using loops 
+
+Inter-Array:
+-Traverse through multiple arrays which involves nested loops
+-Used for matrices/multidimensional arrays
+
+Moving data from A to B:
+let A be array of size 6
+
+for(i=0;i<6;i++){
+	B[i]=A[i];}
+
+ODD index only
+for(i=1;i<6;i=i+2){
+	B[i]=A[i];}
+
+Even index only
+for(i=0;i<6;i=i+2){
+	B[i]=A[i];}
+
+Data Swap
+-Save data to temp buffer>move the data>data from temp to the supposed location
+temp=A[0]
+A[0]=A[1]
+A[1]=temp
+
+for(i=0;i<10;i++){
+	temp=A[i];
+	A[i]=A[i+1];
+	A[i+1]=temp;
+}
+
+A[0]=B[0];
+B[0]=A[0];
+-This approach does not work
+-It deletes data thus not suited for swapping data
+-Using a buffer solves this issue
+
+temp=A[0];
+A[0]=B[0];
+B[0]=temp;
+
+swapping data from array A to B
+for(i=0;i<6;i++){
+	temp=A[i];
+	A[i]=B[i];
+	B[i]=temp;
+}
+
+
