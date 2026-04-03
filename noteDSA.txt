@@ -1,6 +1,6 @@
 Made by Syazwan in Neovim
-Chapter 1  5  |Chapter 2 136 |Chapter 3 285
-Chapter 4     |Chapter 5     |Chapter 6
+Chapter 1  5  |Chapter 2 150 |Chapter 3 300
+Chapter 4 500 |Chapter 5     |Chapter 6
 Chapter 7     |Chapter 8     |Chapter 9
 Chapter 10    |Extra
 
@@ -133,8 +133,27 @@ No restriction
 -O(2^n) means it grows exponentially faster than O(n²)
 -O(n!) grows faster than O(2^n) at big n value
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ##Chapter 2
 #Fundamental to C++
+
+-C++ was created by Bjarne Stroustrup in the 1980
+-It is a Statically typed compiled multi paradigm which include object oriented like Java and procedural oriented like C programming langueage made to be the superset of the C language
+-Used in many different fields including game development and embedded systems as it come with hardware control similar to C
+-Which means it compiles directly to machine code which then linked and executed
 
 Print numbers from 1 to 10
 -instead of using print for each numbers, we instead use loops
@@ -146,7 +165,6 @@ int main(){
 		std::cout<<(i+1)<<"\n";
 	}
 }
-
 Print numbers from 0 to 50 for
 
 ODD numbers only:
@@ -155,7 +173,6 @@ for(int i=0;i<=50;i++){
 		std::cout<<i<<std::endl;
 	}
 }
-
 Even numbers only:
 for(int i=0;i<=50;i++){
 	if(i%2==0){
@@ -246,7 +263,6 @@ int main(){
 
 BMI Calculator
 
-
 #include <iostream>
 int main(){
 	double weight;
@@ -281,7 +297,6 @@ int main(){
 	}
 	std::cout<<" "<<status;
 }
-
 #Chapter 3
 Array
 -Data structure that allows the storage of multiple single type data
@@ -297,23 +312,19 @@ display all content of array A with size 8
 for(i=0;i<8;i++){
 	std::cout<<A[i]<<std::endl;
 }
-
 display odd index only
 for(i=1;i<8;i+=2){
 	std::cout<<A[i];
 }
-
 display even index only
 for(i=0;i<8;i+=2){
 	std::cout<<A[i];
 }
-
 sum of A
 sum=0;
 for(i=0;i<8;i++){
 	sum=sum+A[i];
 }
-
 mean
 for(i=0;i<length;i++){
 	sum=sum+A[i];
@@ -321,7 +332,6 @@ for(i=0;i<length;i++){
 mean=sum/length;
 
 Static and Dynamic  Arrays
-
 Static have fixed size 
 Dynamic have variable size
 Dynamic arrays offer flexibility however it requires memory management to avoid memory leak and run time error
@@ -348,33 +358,26 @@ Intra-Array:
 Inter-Array:
 -Traverse through multiple arrays which involves nested loops
 -Used for matrices/multidimensional arrays
-
 Moving data from A to B:
 let A be array of size 6
-
 for(i=0;i<6;i++){
 	B[i]=A[i];}
-
 ODD index only
 for(i=1;i<6;i=i+2){
 	B[i]=A[i];}
-
 Even index only
 for(i=0;i<6;i=i+2){
 	B[i]=A[i];}
-
 Data Swap
 -Save data to temp buffer>move the data>data from temp to the supposed location
 temp=A[0]
 A[0]=A[1]
 A[1]=temp
-
 for(i=0;i<10;i++){
 	temp=A[i];
 	A[i]=A[i+1];
 	A[i+1]=temp;
 }
-
 A[0]=B[0];
 B[0]=A[0];
 -This approach does not work
@@ -414,14 +417,12 @@ A[7]=temp;
 [6] |
  ^  |
 [7]<-
-
 Rotate-Down:
 temp=A[7]
 for(i=7;i>0;i--){
 	A[i]=A[i-1];
 }
 A[0]=temp;
-
 [0]<-
  v  |
 [1] |
@@ -464,12 +465,10 @@ for(i=index2del;i<size;i++){
 }
 
 Exercise
-
 -Design the C++ code:
 	1.Even Index: Rotate Down
 	2.Odd Index: Rotate Up
 -Display the output before and after
-
 
 #include <iostream>
 int main(){
@@ -492,3 +491,10 @@ int main(){
 }
 
 
+
+
+
+
+
+
+##Chapter 4
