@@ -438,4 +438,57 @@ A[0]=temp;
  v  |
 [7]--
 
+Insert Data 
+-Move array down by 1 then insert the data at the emptied space
+
+A[20]={3,4,6,7,8,9,10}
+std::cin>>position;
+std::cin>>value;
+for(i=20;i>position;i--){
+	A[i]=A[i-1];
+}
+A[position]=value;
+
+-Array of size 20
+-Get position/index 
+-Get the value
+-Start from bottom, move data from up by one,goes up until position is reached
+-Assign value to the array at the intended position
+
+Removing Data
+-Move everything up by one the data will be deleted immediately
+
+cin>>index2del;
+for(i=index2del;i<size;i++){
+	A[i]=A[i+1];
+}
+
+Exercise
+
+-Design the C++ code:
+	1.Even Index: Rotate Down
+	2.Odd Index: Rotate Up
+-Display the output before and after
+
+
+#include <iostream>
+int main(){
+	int size=12;
+	int A[size]={0,1,2,3,4,5,6,7,8,9,10,11};
+	int tempODD=A[1];
+	int tempEven=A[size-2];
+	int i;
+	for(i=1;i<size;i=i+2){
+		A[i]=A[i+2];
+	}
+	A[size-1]=tempODD;
+	for(i=size;i>0;i=i-2){
+		A[i]=A[i-2];
+	}
+	A[0]=tempEven;
+	for(i=0;i<size;i++){
+		std::cout<<A[i]<<" "<<i<<std::endl;
+	}
+}
+
 
