@@ -498,3 +498,148 @@ int main(){
 
 
 ##Chapter 4
+#Object Oriented Programming(OOP)
+-OOP is a programming paradigm which organizes code into segment of objects representing entity or concept
+
+#Terminologies
+Functions:Modular segment of code that perform a task
+Structures:Grouping different data types under a single name enabling creating of user-defined data types
+Object:Contains attributes(state) and functions(behaviour) bundled together that allows manipulation of data. Objects can be any physical and logical object
+Class:A blueprint/template to create objects/defining the attributes and funstions of an object
+Abstraction:Providing necessary information only and leaving behind the too specific details
+Encapsulation:Bundling data and methods into single class
+Inheritance:Extending the attributes of existing classes to new class
+Polymorphism:Ability to use a function in different ways based on input and data type
+
+OOP offers code organization, modularity and reusability
+Able to mimics real world cases more effectively
+
+Example:
+functions
+int add(int a,int b){
+	return a+b;
+}
+
+structures
+struct POINT(
+	int x;
+	std::string y;
+	char z;
+};
+
+classes
+class circle{
+	private:
+		double radius
+	public:
+		double getArea(){
+			return 3.14*radius*radius;
+		}
+};
+
+Transition to OOP
+Procedural Programming:
+-Focus on procedures/routines
+-Functions operate on data
+-Data structures is often defined globally
+-Codes are linear 
+-Data and functions are seperate entities
+
+OOP:
+-Focus on objects, combining data and methods that operate on a class
+-Data is hidden and accessible through defined methods
+-Emphasizes modularity, organization and reuseablity
+
+Recursion:
+-concept where a function calls itelf
+-breaking a problem into subproblems
+
+Example:
+factorial
+#include <iostream>
+int factorial(int n){
+	if(n==0||n==1){
+		return 1;
+	}
+	else{
+		return n*factorial(n-1);
+	}
+}
+
+int main(){
+	int num=5;
+	std::cout<<"Factorial of "<<num<<" is: "<<factorial(num)<<std::endl;
+	return 0;
+}
+_______________________
+| n       | return    |
+| 5       |5*24       |=120<-original factorial()
+| 4       |4*6        |=24
+| 3       |3*2        |=6
+| 2       |2*1        |=2
+| 1       |1          |
+-----------------------
+
+Fibonacci Sequence
+#include <iostream>
+int fibonacci(int n){
+	if(n==0||n==1){
+		return n;
+}
+	else{
+		return fibonacci(n-1)+fibonacci(n-2);
+	}
+}
+int main(){
+	int num=5;
+	std::cout<<"Fibonacci of "<<num<<" is: "<<fibonacci(num)<<std::endl;
+	return 0;
+}
+
+_______________________
+| n       | return    |
+| 5       |f(4)+f(3)  | 
+| 4       |f(3)+f(2)  |
+| 3       |f(2)+f(1)  |
+| 2       |f(1)+f(0)  |
+| 1       |1          |
+-----------------------
+
+
+_______________________
+| n       | return    |
+| 5       |3+2=5      | 
+| 4       |2+1=3      |
+| 3       |1+1=2      |
+| 2       |1          |
+| 1       |1          |
+-----------------------
+
+GNU(fun project)
+
+#include <iostream>
+
+void gnu(int n){
+	if(n==1){
+		std::cout<<"GNU ";
+	}
+	else {
+		gnu(n-1);
+		std::cout<<"Not Unix ";
+	}
+}
+
+int main(){
+	int num=3;
+	std::cout<<"GNU stands for ";
+	gnu(num);
+}
+
+_______________________
+| n       | return    |
+| 3       |GNU N U N U| 
+| 2       |GNU N U    |
+| 1       |GNU        |
+-----------------------
+
+
