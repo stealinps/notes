@@ -1,6 +1,6 @@
 Made by Syazwan in Neovim
 Chapter 1  5  |Chapter 2 150 |Chapter 3 300
-Chapter 4 500 |Chapter 5     |Chapter 6
+Chapter 4 550 |Chapter 5     |Chapter 6
 Chapter 7     |Chapter 8     |Chapter 9
 Chapter 10    |Extra
 
@@ -373,11 +373,10 @@ Data Swap
 temp=A[0]
 A[0]=A[1]
 A[1]=temp
-for(i=0;i<10;i++){
+for(i=0;i<10;i=i+2){
 	temp=A[i];
 	A[i]=A[i+1];
-	A[i+1]=temp;
-}
+	A[i+1]=temp;}
 A[0]=B[0];
 B[0]=A[0];
 -This approach does not work
@@ -392,14 +391,12 @@ swapping data from array A to B
 for(i=0;i<6;i++){
 	temp=A[i];
 	A[i]=B[i];
-	B[i]=temp;
-}
+	B[i]=temp;}
 
 Rotate-Up:
 temp=A[0];
 for(i=0;i<7;i++){
-	A[i]=A[i+1];
-}
+	A[i]=A[i+1];}
 A[7]=temp;
 
 [0]--
@@ -420,8 +417,7 @@ A[7]=temp;
 Rotate-Down:
 temp=A[7]
 for(i=7;i>0;i--){
-	A[i]=A[i-1];
-}
+	A[i]=A[i-1];}
 A[0]=temp;
 [0]<-
  v  |
@@ -446,8 +442,7 @@ A[20]={3,4,6,7,8,9,10}
 std::cin>>position;
 std::cin>>value;
 for(i=20;i>position;i--){
-	A[i]=A[i-1];
-}
+	A[i]=A[i-1];}
 A[position]=value;
 
 -Array of size 20
@@ -461,9 +456,7 @@ Removing Data
 
 cin>>index2del;
 for(i=index2del;i<size;i++){
-	A[i]=A[i+1];
-}
-
+	A[i]=A[i+1];}
 Exercise
 -Design the C++ code:
 	1.Even Index: Rotate Down
@@ -478,17 +471,63 @@ int main(){
 	int tempEven=A[size-2];
 	int i;
 	for(i=1;i<size;i=i+2){
-		A[i]=A[i+2];
-	}
+		A[i]=A[i+2];}
 	A[size-1]=tempODD;
 	for(i=size;i>0;i=i-2){
-		A[i]=A[i-2];
-	}
+		A[i]=A[i-2];}
 	A[0]=tempEven;
 	for(i=0;i<size;i++){
-		std::cout<<A[i]<<" "<<i<<std::endl;
-	}
-}
+		std::cout<<A[i]<<" "<<i<<std::endl; }}
+
+	#include <iostream> 
+	int main(){
+	int A[]={1,3,5,7,9,11,13,15,17,19}; 
+	int B[]={0,2,4,6,8,10,12,14,16,18};
+	for(int i=0;i<10;i++){
+		std::cout<<A[i]<<" ";}
+	std::cout<<std::endl;
+	for(int i=0;i<10;i++){
+		std::cout<<B[i]<<" ";}
+	std::cout<<std::endl;
+	int temp;
+	for(int i=0;i<10;i=i+1){
+		temp=A[i];A[i]=B[i];B[i]=temp;}
+	for(int i=0;i<10;i++){
+		std::cout<<A[i]<<" ";}
+	std::cout<<std::endl;
+	for(int i=0;i<10;i++){
+		std::cout<<B[i]<<" ";}}
+
+	#include <iostream> 
+	int main(){
+	int A[]={1,2,3,4,5,6,7,8,9,10};
+	int B[]={-1,-2,-3,-4,-5,-6,-7,-8,-9,-10};
+	for(int i=0;i<10;i++){
+		std::cout<<A[i]<<" ";}
+	std::cout<<std::endl;
+	for(int i=0;i<10;i++){
+		std::cout<<B[i]<<" ";}
+	std::cout<<std::endl<<"Odd Index Only"<<std::endl;
+	int temp;
+	for(int i=1;i<10;i=i+2){
+		temp=A[i];
+		A[i]=B[10-i];
+		B[10-i]=temp;}
+	for(int i=0;i<10;i++){
+		std::cout<<A[i]<<" ";}
+	std::cout<<std::endl;
+	for(int i=0;i<10;i++){
+		std::cout<<B[i]<<" ";}
+	std::cout<<std::endl<<"Even Index Only"<<std::endl;
+	for(int i=0;i<10;i=i+2){
+		temp=A[i];
+		A[i]=B[8-i];
+		B[8-i]=temp;}
+	for(int i=0;i<10;i++){
+		std::cout<<A[i]<<" ";}
+	std::cout<<std::endl;
+	for(int i=0;i<10;i++){
+		std::cout<<B[i]<<" ";}}#Chapter 4
 
 
 
@@ -497,8 +536,19 @@ int main(){
 
 
 
-##Chapter 4
-#Object Oriented Programming(OOP)
+
+
+
+
+
+
+
+
+
+
+
+#CHAPTER 4
+##Object Oriented Programming(OOP)
 -OOP is a programming paradigm which organizes code into segment of objects representing entity or concept
 
 #Terminologies
