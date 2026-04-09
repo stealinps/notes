@@ -344,6 +344,20 @@ int *ArrayC;
 int size=100;
 ArrayC=new int[size];
 
+#include <iostream>
+int main(){
+	int *ArrayC;
+	int size=10;
+	ArrayC=new int[size];
+	for(int i=0;i<size;i++){
+		ArrayC[i]=i;
+	}
+	ArrayC=new int[size+1];
+	for(int i=0;i<size+1;i++){
+		std::cout<<ArrayC[i]<<std::endl;
+	}
+}
+//memory leak occurs when i reassign the memory without freeing it
 Array Operations:
 
 Move and Swap
@@ -478,7 +492,7 @@ int main(){
 	A[0]=tempEven;
 	for(i=0;i<size;i++){
 		std::cout<<A[i]<<" "<<i<<std::endl; }}
-
+//swap between array A and B
 	#include <iostream> 
 	int main(){
 	int A[]={1,3,5,7,9,11,13,15,17,19}; 
@@ -497,56 +511,42 @@ int main(){
 	std::cout<<std::endl;
 	for(int i=0;i<10;i++){
 		std::cout<<B[i]<<" ";}}
-
+//swap beetween odd idex and even index in a spider web like way like A[0] to B[10] A[1] to B[9]
 	#include <iostream> 
 	int main(){
 	int A[]={1,2,3,4,5,6,7,8,9,10};
 	int B[]={-1,-2,-3,-4,-5,-6,-7,-8,-9,-10};
-	for(int i=0;i<10;i++){
-		std::cout<<A[i]<<" ";}
+	for(int i=0;i<10;i++){std::cout<<A[i]<<" ";}
 	std::cout<<std::endl;
-	for(int i=0;i<10;i++){
-		std::cout<<B[i]<<" ";}
+	for(int i=0;i<10;i++){std::cout<<B[i]<<" ";}
 	std::cout<<std::endl<<"Odd Index Only"<<std::endl;
 	int temp;
-	for(int i=1;i<10;i=i+2){
-		temp=A[i];
-		A[i]=B[10-i];
-		B[10-i]=temp;}
+	for(int i=1;i<10;i=i+2){temp=A[i];A[i]=B[10-i];B[10-i]=temp;}
 	for(int i=0;i<10;i++){
 		std::cout<<A[i]<<" ";}
 	std::cout<<std::endl;
 	for(int i=0;i<10;i++){
 		std::cout<<B[i]<<" ";}
 	std::cout<<std::endl<<"Even Index Only"<<std::endl;
-	for(int i=0;i<10;i=i+2){
-		temp=A[i];
-		A[i]=B[8-i];
+	for(int i=0;i<10;i=i+2){temp=A[i];A[i]=B[8-i];
 		B[8-i]=temp;}
 	for(int i=0;i<10;i++){
 		std::cout<<A[i]<<" ";}
 	std::cout<<std::endl;
 	for(int i=0;i<10;i++){
-		std::cout<<B[i]<<" ";}}#Chapter 4
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		std::cout<<B[i]<<" ";}}
+#include <iostream> int main(){
+	int size=10;int *A=new int[size];int i;
+	for(i=0;i<size;i++){A[i]=i;}
+	int position,value;
+	std::cout<<"Enter position and value ";
+	std::cin>>position;std::cin>>value;int temp[size];
+	for(int i=0;i<size;i++){temp[i]=A[i];}
+	size++;delete[]A;A=new int[size];
+	for(i=0;i<(size-1);i++){A[i]=temp[i];}
+	for(i=size-1;i>position;i--){A[i]=A[i-1];}
+	A[position]=value;
+	for(i=0;i<(size);i++){std::cout<<A[i]<<" ";}}
 #CHAPTER 4
 ##Object Oriented Programming(OOP)
 -OOP is a programming paradigm which organizes code into segment of objects representing entity or concept
