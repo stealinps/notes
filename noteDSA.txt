@@ -1,6 +1,6 @@
 Made by Syazwan in Neovim
 Chapter 1  5  |Chapter 2 150 |Chapter 3 300
-Chapter 4 550 |Chapter 5     |Chapter 6
+Chapter 4 550 |Chapter 5 800 |Chapter 6
 Chapter 7     |Chapter 8     |Chapter 9
 Chapter 10    |Extra
 
@@ -754,3 +754,47 @@ class pet
 	int color;
 	float size;
 };
+
+#Functions
+
+Modular Programming
+-Technique to divide a program into smaller , independent modules aka functions
+-A module will do specific task and can be developed and tested independently 
+-Allowing scalability and colaboration
+
+Function consist of 3 parts:
+1. Function declaration
+	-return_type function_name(parameter_type variable)
+2. Function definition
+	-implementation of function
+	-function declaration with addition of {function_body}
+	-function declaration and definition can be combined if its not called yet
+3. Function call
+	-calling the function so that the code is implemented
+	-function_name(arguments)
+
+Function parameters
+-Variables listed in the function declaration
+-Acts as placeholder for the value
+-The input of the function
+
+Function Arguments
+-The actual values/variables that got passed into the functions
+-Global variables dont need to be passed into the functions since it is declared globally thus all functions can use it
+
+Return statements
+-Send a value back from the function to main
+- return expression;
+
+Functions and class
+-Functions is also used in class, also known as methods
+-To define the method it is similar to defining function with the caveat that before the method name the class name also there seperated with ::
+class test{
+public
+void display();...
+}
+-function call
+void test::display(){
+//method body
+}
+#Chapter 5
