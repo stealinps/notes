@@ -1,6 +1,6 @@
 Made by Syazwan in Neovim
 Chapter 1  5  |Chapter 2 150 |Chapter 3 300
-Chapter 4 550 |Chapter 5 800 |Chapter 6
+Chapter 4 600 |Chapter 5 900 |Chapter 6
 Chapter 7     |Chapter 8     |Chapter 9
 Chapter 10    |Extra
 
@@ -535,7 +535,7 @@ int main(){
 	std::cout<<std::endl;
 	for(int i=0;i<10;i++){
 		std::cout<<B[i]<<" ";}}
-#include <iostream> int main(){
+#include <iostream> int main(){//insert with dynamic array to preserve values
 	int size=10;int *A=new int[size];int i;
 	for(i=0;i<size;i++){A[i]=i;}
 	int position,value;
@@ -547,6 +547,56 @@ int main(){
 	for(i=size-1;i>position;i--){A[i]=A[i-1];}
 	A[position]=value;
 	for(i=0;i<(size);i++){std::cout<<A[i]<<" ";}}
+
+
+#include <iostream>
+int main(){
+	int A[10]={1,2,3,4,5,6,7,8,9,10};
+	int B[20]={-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,
+		-11,-12,-13,-14,-15,-16,-17,-18,-19,-20};
+	int C[10]={1,2,3,4,5,6,7,8,9,10};
+	int temp=A[9];
+	int temp2;
+	for(int i=0;i<10;i++){
+		A[10-i]=A[9-i];
+	}
+	A[0]=B[0];
+	for(int i=0;i<9;i++){
+		B[i]=B[i+1];
+	}
+	B[9]=temp;
+	for(int i=0;i<5;i++){
+		temp2=C[i];
+		C[i]=B[14-i];
+		B[14-i]=temp2;
+	}
+	for(int i=0;i<5;i++){
+		temp2=C[i+5];
+		C[i+5]=B[19-i];
+		B[19-i]=temp2;
+	}
+	for(int i=0;i<10;i++){
+		std::cout<<A[i]<<" "<<B[i]<<" "<<B[10+i]<<" "<<C[i]<<std::endl;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #CHAPTER 4
 ##Object Oriented Programming(OOP)
 -OOP is a programming paradigm which organizes code into segment of objects representing entity or concept
@@ -580,7 +630,7 @@ struct POINT(
 classes
 class circle{
 	private:
-		double radius
+		double radiu inside classs
 	public:
 		double getArea(){
 			return 3.14*radius*radius;
@@ -599,6 +649,111 @@ OOP:
 -Focus on objects, combining data and methods that operate on a class
 -Data is hidden and accessible through defined methods
 -Emphasizes modularity, organization and reuseablity
+
+Data Types(DT) VS Abstract Data Types(ADT)
+
+DT:
+-Defines a certain domain of values
+-Defines Operations allowed on those values
+
+e.g:
+int num
+-takes only int values
+-allowed operations includes:addition, subtraction, multiplication, modulus and more
+
+float num
+-takes only float values
+-allowd operations includes:addition, subtraction, multiplication and more but doesnt includes modulus
+
+User Defined Data Types(UDT)
+-primitive data types:int, bool, char, byte, short, long, float, double
+(data types included with the programming language)
+-UDT is the data types that the user defined themselves
+-like struc,enum and union
+e.g:
+struct point{
+	int x;
+	int y;
+};
+Abstract Data Types(ADT)
+-ADT is a model used to represent data structures by its behaviour, operations and posibble values likes UDT
+-by using functions
+-it is like a psuedocode of a data structure
+-Key characteristics of ADT includes:
+	-Encapsulation
+	-Abstraction
+	-Modularity
+e.g:
+stack ADT
+-A stack consists of elements of same type arranged in a sequential order
+Operations:
+initialize()-initialize
+push()-insert an element
+pop()-delete an element
+isEmpty()-checks if the stack is empty
+isFull()-checks if its full
+
+ADT     Implementation
+List	Dynamic Array/Linked List
+Queue	Linked List based Queue/Array based Queue/Stack based Queue
+Map	Tree Map/Hash Map
+
+Implementation View
+class pet
+{
+	public:
+	pet();
+	pet(int YourColor);
+	~pet();
+	void Eat();
+	void Sleep();
+
+	private:
+	int color;
+	float size;
+};
+
+#Functions
+Modular Programming
+-Technique to divide a program into smaller , independent modules aka functions
+-A module will do specific task and can be developed and tested independently 
+-Allowing scalability and colaboration
+
+Functions and class
+-Functions is also used in OOP, inside class also known as methods
+-To define the method it is similar to defining function with the caveat that before the method name the class name also there seperated with ::
+class test{
+public
+void display();...
+}
+-function call
+void test::display(){
+//method body
+}
+
+Function consist of 3 parts:
+1. Function declaration
+	-return_type function_name(parameter_type variable)
+2. Function definition
+	-implementation of function
+	-function declaration with addition of {function_body}
+	-function declaration and definition can be combined if its not called yet
+3. Function call
+	-calling the function so that the code is implemented
+	-function_name(arguments)
+
+Function parameters
+-Variables listed in the function declaration
+-Acts as placeholder for the value
+-The input of the function
+
+Function Arguments
+-The actual values/variables that got passed into the functions
+-Global variables dont need to be passed into the functions since it is declared globally thus all functions can use it
+
+Return statements
+-Send a value back from the function to main
+-return expression;
 
 Recursion:
 -concept where a function calls itelf
@@ -692,109 +847,55 @@ _______________________
 | 1       |GNU        |
 -----------------------
 
-Data Types(DT) VS Abstract Data Types(ADT)
 
-DT:
--Defines a certain domain of values
--Defines Operations allowed on those values
 
-e.g:
-int num
--takes only int values
--allowed operations includes:addition, subtraction, multiplication, modulus and more
 
-float num
--takes only float values
--allowd operations includes:addition, subtraction, multiplication and more but doesnt includes modulus
 
-User Defined Data Types(UDT)
--primitive data types:int, bool, char, byte, short, long, float, double
-(data types included with the programming language)
--UDT is the data types that the user defined themselves
--like struc,enum and union
-e.g:
-struct point{
-	int x;
-	int y;
-};
-Abstract Data Types(ADT)
--ADT is a model used to represent data structures by its behaviour, operations and posibble values likes UDT
--by using functions
--it is like a psuedocode of a data structure
--Key characteristics of ADT includes:
-	-Encapsulation
-	-Abstraction
-	-Modularity
-e.g:
-stack ADT
--A stack consists of elements of same type arranged in a sequential order
-Operations:
-initialize()-initialize
-push()-insert an element
-pop()-delete an element
-isEmpty()-checks if the stack is empty
-isFull()-checks if its full
 
-ADT     Implementation
-List	Dynamic Array/Linked List
-Queue	Linked List based Queue/Array based Queue/Stack based Queue
-Map	Tree Map/Hash Map
 
-Implementation View
-class pet
-{
-	public:
-	pet();
-	pet(int YourColor);
-	~pet();
-	void Eat();
-	void Sleep();
 
-	private:
-	int color;
-	float size;
-};
 
-#Functions
 
-Modular Programming
--Technique to divide a program into smaller , independent modules aka functions
--A module will do specific task and can be developed and tested independently 
--Allowing scalability and colaboration
 
-Function consist of 3 parts:
-1. Function declaration
-	-return_type function_name(parameter_type variable)
-2. Function definition
-	-implementation of function
-	-function declaration with addition of {function_body}
-	-function declaration and definition can be combined if its not called yet
-3. Function call
-	-calling the function so that the code is implemented
-	-function_name(arguments)
 
-Function parameters
--Variables listed in the function declaration
--Acts as placeholder for the value
--The input of the function
 
-Function Arguments
--The actual values/variables that got passed into the functions
--Global variables dont need to be passed into the functions since it is declared globally thus all functions can use it
 
-Return statements
--Send a value back from the function to main
-- return expression;
 
-Functions and class
--Functions is also used in class, also known as methods
--To define the method it is similar to defining function with the caveat that before the method name the class name also there seperated with ::
-class test{
-public
-void display();...
-}
--function call
-void test::display(){
-//method body
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Chapter 5
+
