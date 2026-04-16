@@ -630,7 +630,7 @@ struct POINT(
 classes
 class circle{
 	private:
-		double radiu inside classs
+		double radius inside classes
 	public:
 		double getArea(){
 			return 3.14*radius*radius;
@@ -719,18 +719,6 @@ Modular Programming
 -A module will do specific task and can be developed and tested independently 
 -Allowing scalability and colaboration
 
-Functions and class
--Functions is also used in OOP, inside class also known as methods
--To define the method it is similar to defining function with the caveat that before the method name the class name also there seperated with ::
-class test{
-public
-void display();...
-}
--function call
-void test::display(){
-//method body
-}
-
 Function consist of 3 parts:
 1. Function declaration
 	-return_type function_name(parameter_type variable)
@@ -760,6 +748,31 @@ Recursion:
 -breaking a problem into subproblems
 
 Example:
+swapping data
+#include <iostream>
+void swap(int *a,int *b){
+// 1.a and b is a pointer
+	int temp=*a;
+	*a=*b;
+	*b=temp;
+	// 3.save the value of address a which point toward A[i] to temp
+	// 4.address of a become the address of b as a 
+	// point toward the same memory address thus effectively a=b
+	// 5.the address of b become the value of the address that temp 
+	// saved just now which is the address of A[i]
+}
+void display(int a[],int b[],int n){
+	for(int i=0;i<n;i++) std::cout<<a[i]<<" "<<b[i]<<std::endl;
+}
+int main(){
+	int A[10]={1,2,3,4,5,6,7,8,9,10};
+	int B[10]={-1,-2,-3,-4,-5,-6,-7,-8,-9,-10};
+	int temp,i;
+	for(i=1;i<10;i=i+2) swap(&A[i],&B[i]);
+	// 2.pass A and B address
+	std::cout<<std::endl;
+	display(A,B,10);
+}
 factorial
 #include <iostream>
 int factorial(int n){
@@ -846,30 +859,17 @@ _______________________
 | 2       |GNU N U    |
 | 1       |GNU        |
 -----------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Functions and class
+-Functions is also used in OOP, inside class also known as methods
+-To define the method it is similar to defining function with the caveat that before the method name the class name also there seperated with ::
+class test{
+public
+void display();...
+}
+-function call
+void test::display(){
+//method body
+}
 
 
 
