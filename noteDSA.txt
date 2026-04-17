@@ -898,4 +898,175 @@ void test::display(){
 
 
 #Chapter 5
+Stack(LIF0)
+
+-Fundamental data structure with LIFO principle
+-The Last data In will be the Firdt to be Removed
+-Think like a pile of clothes, where you need to get to the first item, you have to remove the clothes one by one from up to down
+-Stack as the name suggest follows the same principle
+-Accessing an element at n require O(n) time unlike array with O(1)
+-Operations of Stack:
+	-Push(element) //push an element to the top
+	-Pop() //remove the top element
+	-Peek()/Top() //view the top element without removing it
+	-Clear() //Clear the stack
+	-Display() //View all the elements in the stack
+
+example:	
+Stack Test(10); ______
+Test.Push(1);	|  1 |
+Test.Push(2);	|  2 |
+Test.Push(3);	|  3 |
+		------
+
+Test.Pop();     ------
+Test.Pop();	|  1 |
+		------
+Test.Push(4);	______
+		|  1 |
+		|  4 |
+		------
+ADT of Stack
+
+Behaviours
+Push(val);
+Pop();
+Top();
+Clear();
+Display();
+
+Characteristics
+Array
+MaxCapacity
+CurrentPosition
+
+Current Position is the position of the index where data is removed/added
+When theres no element in a stack the CurrentPosition =-1
+when theres 1 element CurrentPosition =0
+when theres 2 element CurrentPosition =1
+when theres n element CurrentPosition =n-1
+
+Implementation View
+
+
+#include <iostream>
+class Stack
+{
+	public:
+	Stack();//constructors
+	Stack(int StackSize);
+	~Stack(); //destructor
+	void Push(int Value);
+	int Pop();
+	int Top();
+	void Clear();
+	void Display();
+
+	private:
+	int *Array;
+	int CurrentPosition;
+	int MaxCapacity;
+};
+
+
+//Constructor:Set the Stack on initial stage
+
+Stack::Stack()
+{
+	Array=new int[6];
+	MaxCapacity=6;
+	CurrentPosition=-1;
+	std::cout<<"Stack created\n";
+}
+//Set the stack with default size of 6
+
+Stack::Stack(int StackSize)
+{
+	Array=new int[StackSize];
+	MaxCapacity=StackSize;
+	CurrentPosition=-1;
+	std::cout<<"Option 2 Stack created\n";
+}
+//Set the  stack with different size
+//Destructor:Run automatically by the end of the program
+
+Stack::~Stack()
+{
+	delete [] Array;
+	std::cout<<"Destruct Array \n";
+}
+
+void Stack::Push(int value)
+{
+	if(CurrentPosition<MaxCapacity-1){
+		CurrentPosition=CurrentPosition+1;
+		Array[CurrentPosition]=value;
+	}
+	else
+		std::cout<<"Stack Overflow!!\n";
+}
+
+int Stack::Pop()
+{
+	int Result;
+	if(CurrentPosition>=0){
+		Result=Array[CurrentPosition];
+		CurrentPosition--;
+		return Result;
+	}
+	else
+	{
+		std::cout<<"Stack Underflow\n";
+		return -1;
+	}
+}
+
+int Stack::Top()
+{
+	int Result;
+	if(CurrentPosition>=0)
+	{
+		Result=Array[CurrentPosition];
+		return Result;
+	}
+	else
+		std::cout<<"Stack Underflow\n";
+	return -1;
+}
+void Stack::Clear()
+{
+	CurrentPosition=-1;
+}
+void Stack::Display()
+{
+	int i;
+	std::cout<<"Display of Stack\n";
+	for(i=0;i<CurrentPosition+1;i++){
+		std::cout<<Array[i]<<std::endl;
+	}
+}
+
+int main(){
+	Stack A;
+	Stack B(10);
+	A.Push(1);
+	B.Push(33);
+	B.Push(99);
+	A.Push(2);
+	A.Push(3);
+	B.Pop();
+	B.Push(100);
+	A.Push(4);
+	A.Push(5);
+	A.Display();
+	std::cout<<A.Top()<<std::endl;
+	A.Push(6);
+	B.Display();
+	Stack C(8);
+	int i;
+	for(i=0;i<8;i++)
+		C.Push(i+10);
+	C.Display();
+	C.Top();
+}
 
