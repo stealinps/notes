@@ -1,34 +1,31 @@
-
-//Question 1
-//written by Syazwan Nur Iman 9:09am 20/4/26
-const int size=18;
-int j=0;
 #include <iostream>
-int swap(int A[],int C[],int i){
+//Created by Syazwan Nur Iman 
+const int size=18;
+int swp(int A[],int C[],int *i){
 	int temp;
-	while(j<3*i){
-		temp=A[j];
-		A[j]=C[2-j];
-		C[2-j]=temp;
-		j++;
+	int j;
+	for(j=0;j<3;j++){
+		temp=A[j+3*(*i)];
+		A[j+3*(*i)]=C[2+3*(*i)-j];
+		C[2+3*(*i)-j]=temp;
 	}
-	i++;
-	return 1;
+	(*i)++;
+	if(*i<size/3)
+		return swp(A,C,i);
+	else
+		return 1;
 }
 void display(int A[],int C[],int size){
 	int i;
+	std::cout<<"A   B"<<std::endl;
 	for(i=0;i<size;i++)
 		std::cout<<A[i]<<" "<<C[i]<<std::endl;
 }
 
 int main(){
 	int A[size]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18};
-	int C[size]={-1,-2,-3,-4,-5,-6,-7,-8,-9,
-	-10,-11,-12,-13,-14,-15,-16,-17,-18};
-	int i=1;
-	swap(A,C,i);
-	i=i+3;
-	swap(A,C,i);
-	i=i+3;
+	int C[size]={-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18};
+	int i=0;
+	swp(A,C,&i);
 	display(A,C,size);
 }
