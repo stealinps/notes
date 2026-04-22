@@ -43,12 +43,14 @@ int main(){
 	std::cout<<"After \n"; display(A,C);
 }
 */
-//Question 2
+/*Question 2
+//This problem uses iterative approach 
+//Originally it was coded using recursive and pointers however while it works, the codes quality is subpar in term of readability , space complexity and risks for stack overflow.
 #include <iostream>
 const int size=20;
 const int chunk=3;
 //red
-int swp(int A[],int C[]){
+void swp(int A[],int C[]){
 	int temp;
 	int j;
 	for(j=1;chunk*j<=size;j++){
@@ -56,45 +58,44 @@ int swp(int A[],int C[]){
 		A[chunk*j-1]=C[chunk*j-1];
 		C[chunk*j-1]=temp;
 	}
-	return 0;
-}
+	return ;
+}//swaping function
 
 void display(int A[],int R[]){
 	int i;
 	std::cout<<"A   R"<<std::endl;
 	for(i=0;i<size;i++)
 		std::cout<<A[i]<<" "<<R[i]<<std::endl;
-}
+}//display function
 
-int circle(int A[], int R[], int *dir){
+void circle(int A[], int R[], int dir){
 	int i,temp;
-	//counter clockwise 
-	if(*dir==2){
+	//blue(counter clockwise)
+	if(dir==2){
 		temp=A[1];
 		for(i=1;i+chunk<size;i=i+chunk) A[i]=A[i+chunk];
 		A[size-1]=R[size-1];
 		for(i=size-1;i-chunk>=0;i=i-chunk) R[i]=R[i-chunk];
 		R[1]=temp;
-		(*dir)--;
-		return circle(A,R,dir);
 	}
-	//clockwise
-	else if(*dir==1){
+	//green(clockwise)
+	else if(dir==1){
 		temp=A[size-2];
 		for(i=size-2;i-3>=0;i=i-chunk) A[i]=A[i-chunk];
 		A[0]=R[0];
 		for(i=0;i+chunk<size;i=i+chunk) R[i]=R[i+chunk];
 		R[size-2]=temp;
-		(*dir)--;
-		return circle(A,R,dir);
     }
-	return 0;
+	return ;
 }
 int main(){
 	int A[size]={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19};
 	int R[size]={0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-19};
-	int i=0; int direction=2;
 	std::cout<<"Before \n"; display(A,R);
-	circle(A,R,&direction); swp(A,R);
+	int direction=2;
+	circle(A,R,direction); 
+	direction--;
+	circle(A,R,direction); 
+	swp(A,R);
 	std::cout<<"After \n"; display(A,R);
-}//
+}*/
