@@ -1,6 +1,6 @@
 Made by Syazwan in Neovim
 Chapter 1  5  |Chapter 2 150 |Chapter 3 300
-Chapter 4 600 |Chapter 5 900 |Chapter 6
+Chapter 4 600 |Chapter 5 950 |Chapter 6
 Chapter 7     |Chapter 8     |Chapter 9
 Chapter 10    |Extra
 
@@ -872,22 +872,72 @@ void test::display(){
 }
 
 
+#include <iostream>
+class pet
+{
+public:
+	pet();
+	~pet();
+	void setSize(float s);
+	void setColor(int c);
+	void eat();
+	void sleep();
+	void getSize(){ 
+		std::cout<<"Size "<<size;
+	}
+	int getColor(){ 
+		return color; }
 
+private:
+	int color;
+	float size;
+};
+pet::pet(){
+	std::cout<<"Pet Created\n";
+	color=1;
+	size=1.0;
+	}
+pet::~pet(){
+	std::cout<<"Pet Destroyed \n";
+}
+void pet::setColor(int c){ 
+	color = c; 
+}
+void pet::setSize(float s){
+	size=s;
+}
+void pet::eat(){
+	std::cout<<"Nyum Nyum\n";
+	size=size+0.1;
+}
+void pet::sleep(){
+	std::cout<<"zzzZZZ\n";
+}
+int main()
+{
+	pet cat;
+	pet dog;
 
+	cat.setSize(20.0);
+	cat.setColor(1);
 
+	dog.setSize(40.0);
+	dog.setColor(2);
 
+	cat.getSize();
+	std::cout << "\nCat Color " << cat.getColor()<<std::endl;
+	cat.eat();
+	cat.sleep();
+	cat.getSize();
+	std::cout << "\nCat Color " << cat.getColor()<<std::endl;
 
-
-
-
-
-
-
-
-
-
-
-
+	dog.getSize();
+	std::cout << "\nDog Color " << dog.getColor()<<std::endl;
+	dog.eat();
+	dog.sleep();
+	dog.getSize();
+	std::cout << "\nDog Color " << dog.getColor()<<std::endl;
+}
 
 
 
