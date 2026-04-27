@@ -1,6 +1,6 @@
 Made by Syazwan in Neovim
 Chapter 1  5  |Chapter 2 150 |Chapter 3 300
-Chapter 4 600 |Chapter 5 950 |Chapter 6
+Chapter 4 600 |Chapter 5 950 |Chapter 6 1150
 Chapter 7     |Chapter 8     |Chapter 9
 Chapter 10    |Extra
 
@@ -600,7 +600,6 @@ int main(){
 #CHAPTER 4
 ##Object Oriented Programming(OOP)
 -OOP is a programming paradigm which organizes code into segment of objects representing entity or concept
-
 #Terminologies
 Functions:Modular segment of code that perform a task
 Structures:Grouping different data types under a single name enabling creating of user-defined data types
@@ -610,6 +609,7 @@ Abstraction:Providing necessary information only and leaving behind the too spec
 Encapsulation:Bundling data and methods into single class
 Inheritance:Extending the attributes of existing classes to new class
 Polymorphism:Ability to use a function in different ways based on input and data type
+Public:Accessible Everywhere Protected:Accessible by derived subclass Private:Only accessible inside its own class
 
 OOP offers code organization, modularity and reusability
 Able to mimics real world cases more effectively
@@ -964,17 +964,17 @@ Stack(LIF0)
 
 example:	
 Stack Test(10); ______
-Test.Push(1);	|  1 |
+Test.Push(1);	|  3 |
 Test.Push(2);	|  2 |
-Test.Push(3);	|  3 |
+Test.Push(3);	|  1 |
 		------
 
 Test.Pop();     ------
 Test.Pop();	|  1 |
 		------
 Test.Push(4);	______
-		|  1 |
 		|  4 |
+		|  1 |
 		------
 ADT of Stack
 
@@ -1013,7 +1013,7 @@ class Stack
 	void Display();
 
 	private:
-	int *Array;
+	int *Array;//dynamic array
 	int CurrentPosition;
 	int MaxCapacity;
 };
@@ -1120,3 +1120,125 @@ int main(){
 	C.Top();
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Chapter 6
+Queue(FIF0)
+
+-Fundamental data structure with FIFO principle
+-Insert at rear, remove at front
+-The Last data In will be the last to be Removed
+-Accessing an element at n require O(n) time 
+-Operations of Queue:
+	Front:Remove()
+	Rear:Insert()
+	Count:Keeps track of how many elements in the queue
+example:	
+-          [,,,,] count=0
+Insert(15) [15,,,,] count=1
+Insert(99) [15,99,,,] count=2
+Insert(8)  [15,99,8,,] count=3
+Insert(2)  [15,99,8,2,] count=4
+Insert(10) [15,99,8,2,10] count=5
+Insert(7)  stack overflow
+remove()   [99,8,2,10,] count=4 , all data moves to fill the gap 
+Insert(7)  [99,8,2,10,7]
+
+Circular Queue, the front and rear moves
+-First Index and Last Index is connected
+say 		[5,99,8,2,10] count=5, front is 5, rear is 10
+remove()	[ ,99,8,2,10] count=4, front is 99, rear is 10
+remove()	[ ,  ,8,2,10] count=3, front is 8, rear is 10
+Insert(77)	[77, ,8,2,10] count=4, front is 8, rear is 77
+remove()	[77, , ,2,10] count=3, front is 2, rear is 77
+Insert(11)	[77,11, ,2,10] count=4, front is 2, rear is 11
+remove()	[77,11, , ,10] count=3, front is 10,rear is 11
+remove()	[77,11, , ,  ] count=2, front is 77, rear is 11
+Insert(9)	[77,11,9, ,  ] count=3, front is 77, rear is 9
+
+Queue Implementation
+ADT
+
+Behaviours
+Insert(Val)
+Remove()
+First()
+CLear()
+Display()
+
+Characteristic
+Array
+ArraySize
+Front
+Rear
+Count
+
+#Include <iostream>
+
+class Queue{
+	public:
+		Queue();
+		Queue(int QueueSize);
+		~Queue();
+		void Insert(int Value);
+		int Remove();
+		int First();
+		void Clear();
+		void Display();
+
+	private:
+		int *Array;
+		int Front;
+		int Rear;
+		int Count;
+		int ArraySize;
+	};
+Queue::Queue(){
+	Array=new int[6];//access the *Array in private
+	ArraySizee=6;
+
+	Front=0;
+	Rear=ArraySize-1;
+	Count=0;
+	std::cout<<"Queue created \n";
+}
+Queue::Queue(int QueueSize){
+	Array=new int[QueueSize];
+	ArraySize=QueueSize;
+	Front=0;
+	Rear=ArraySize-1;
+	Count=0;
+	std::cout<<"Queue 2 created \n";
+}
+
+Queue::~Queue(){
+	delete []Array;
+	std::cout<<"Queue bombed to death";
+}
+void Queue::Insert(int Val){
+	
