@@ -1,7 +1,7 @@
 Made by Syazwan in Neovim
 Chapter 1  5  |Chapter 2 150 |Chapter 3 300
 Chapter 4 600 |Chapter 5 950 |Chapter 6 1150
-Chapter 7     |Chapter 8     |Chapter 9
+Chapter 7 1300|Chapter 8     |Chapter 9
 Chapter 10    |Extra
 
 ##Chapter 1: Intro to DSA Analysis
@@ -1198,14 +1198,13 @@ Front
 Rear
 Count
 
-#Include <iostream>
-
+%:include <iostream>//using digraph for fun
 class Queue{
 	public:
 		Queue();
 		Queue(int QueueSize);
 		~Queue();
-		void Insert(int Value);
+		void Insert(int Val);
 		int Remove();
 		int First();
 		void Clear();
@@ -1219,9 +1218,8 @@ class Queue{
 		int ArraySize;
 	};
 Queue::Queue(){
-	Array=new int[6];//access the *Array in private
-	ArraySizee=6;
-
+	ArraySize=6;
+	Array=new int[ArraySize];//access the *Array in private
 	Front=0;
 	Rear=ArraySize-1;
 	Count=0;
@@ -1235,10 +1233,69 @@ Queue::Queue(int QueueSize){
 	Count=0;
 	std::cout<<"Queue 2 created \n";
 }
-
 Queue::~Queue(){
 	delete []Array;
 	std::cout<<"Queue bombed to death";
 }
 void Queue::Insert(int Val){
-	
+	if(Count==ArraySize){
+		std::cout<<"Queue is FULL!\n";
+		return;
+	}
+	if(Rear==ArraySize-1)
+		Rear=0;
+	else
+		Rear++;
+	Array[Rear]=Val;
+	Count++;
+}
+int Queue::Remove(){
+	int Temp;
+	if(Count==0){
+	std::cout<<"Queue is empty!\n";
+		return -1;
+	}
+	Temp=Array[Front];
+	if(Front==ArraySize-1) Front=0;
+	else Front++;
+	Count--;
+	return Temp;
+}
+int Queue::First(){
+	if(Count==0){
+		std::cout<<"Queue is empty!\n";
+		return -1;
+	}
+	return Array[Front];
+}
+void Queue::Clear(){
+	Front=0;
+	Rear=ArraySize-1;
+	Count=0;
+}
+void Queue::Display(){
+    if(Count==0){ std::cout<<"Queue is empty!\n"; return; }
+    for(int i=0;i<Count;i++)
+        std::cout << Array[(Front+i) % ArraySize] << std::endl;
+}
+int main(){
+	Queue A;
+	Queue B;
+	Queue C(10);
+
+	A.Insert(99);
+	A.Insert(10);
+	A.Insert(1);
+	A.Insert(4);
+	A.Insert(100);
+	A.Insert(7);
+	B.Insert(5);
+
+	for(int i=0;i<6;i++) std::cout<<A.Remove()<<std::endl;
+
+	A.Display();
+	B.Display();
+	C.Display();
+}
+##Chapter 7
+Linked-List
