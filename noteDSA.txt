@@ -1073,10 +1073,9 @@ int Stack::Pop()
 
 int Stack::Top()
 {
-	int Result;
 	if(CurrentPosition>=0)
 	{
-		Result=Array[CurrentPosition];
+		int Result=Array[CurrentPosition];
 		return Result;
 	}
 	else
@@ -1299,3 +1298,108 @@ int main(){
 }
 ##Chapter 7
 Linked-List
+-A linear data structure consists of nodes connected in sequence
+-Each node point toward the next node in the sequence
+
+Node:
+Data:Hold value
+Pointer:Points toward the next node in the sequence
+
+Dynamic Structure:
+-Linked-List is a dynamic data structure, meaning the size can vary during program execution
+-Nodes are allocated and deallocated dynamically 
+
+Types of Linked-List
+-Singly Linked-List
+-Doubly Linked-List
+-Circular Linked-List
+
+SLL:Each node point to the next sequence, last node points to NULL indicating end of a list
+DLL:Each node point to both next and previous nodes allowing for traversal in both directions
+CLL:Like SLL but the last node point toward the first node
+
+Insertion:
+SLL:Beginning/middle/end
+DLL:Beginning+middle+end
+CLL:Anywhere in the sequence
+
+Deletion:
+SLL:Based on val/pos
+DLL:More efficient
+CLL:like SLL
+
+Traversal:
+Sequentially Visiting Nodes, O(n)
+
+Memory Allocation, Malloc() in C, New in C++
+-Required for Dynamic Memory Allocation
+
+struct ListNode{
+	int Value;
+	ListNode *Next;
+};
+typedef ListNode *ListNodePointer;
+
+struct DListNode{
+	int Value;
+	ListNode *Prev;
+	ListNode *Next;
+};
+typedef DListNode *DListNodePointer;
+
+ListNodePointer Head;
+Head=new ListNode;
+(*Head).Value=5; //The node pointed to by Head to access the Value which then assigned to 5
+Head->Next=NULL; //Same here different notation
+
+ListNodePointer Head;
+ListNodePointer Second;
+ListNodePointer Third;
+Head=new ListNode;
+Second=new ListNode;
+Third=new ListNode;
+//Option 1
+Head->Value=1;
+Second->Value=2;
+Third->Value=3;
+Head->Next=Second;
+Second->Next=Third;
+Third->Next=NULL;
+//Option 2
+ListNodePointer Head=new ListNode;
+Head->Value=1;
+Head->Next=new ListNode;
+Head->Next->Value=2;
+Head->Next->Next=new ListNode;
+Head->Next->Next->Value=3;
+Head->Next->Next->Next=NULL;
+//Option 3
+ListNodePointer Head=new ListNode;
+Head->Value=1;
+Head->Next=new ListNode;
+ListNodePointer Current=Head->Next;
+Current->Value=2;
+Current->Next=new ListNode;
+Current=Current->Next;
+Current->Value=30;
+Current->Next=new ListNode;
+Current=Current->Next;
+Current->Value=100;
+Current->Next=NULL:
+
+Linked List Implementation
+
+Linked List Operations:
+Insert(Value)
+Remove(Value)
+InsertInOrder()
+Search(Value)
+
+BEHAVIORS
+CHARACTERISTICS
+Insert(Value)
+InsertInOrder(Value)
+Remove(Value)
+Search(Value)
+Display()
+ListNodePointer
