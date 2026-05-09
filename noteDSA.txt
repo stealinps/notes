@@ -663,7 +663,7 @@ int num
 
 float num
 -takes only float values
--allowd operations includes:addition, subtraction, multiplication and more but doesnt includes modulus
+-allowed operations includes:addition, subtraction, multiplication and more but doesnt includes modulus
 
 User Defined Data Types(UDT)
 -primitive data types:int, bool, char, byte, short, long, float, double
