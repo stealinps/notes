@@ -1,40 +1,51 @@
 #include <iostream>
-using namespace std;
 
-void display(int data[],int size){
-	int i;
-	for(i=0;i<size;i++){
-	cout<<i<<":"<<data[i]<<endl;
-	}
-}
 int main(){
-	int i;
-	int A[20];
-	for(i=0;i<20;i++){
-		A[i]=1+2*i;
-	}
-	cout<<"BEFORE DATA EXCHANGE\n";
-	cout<<"Content of Array A:\n";
-	display(A,20);
-
-	int B[15];
-	for(i=0;i<15;i++){
-		B[i]=5*i;
-	}
-	
-	cout<<"\nContent of Array B:\n";
-	display(B,15);
-
-	int temp;
+	int A[10]={0,1,2,3,4,5,6,7,8,9};
+	int B[18]={0,-1,-2,-3,-4,-5,-6,-7,-8,
+		-9,-10,-11,-12,-13,-14,-15,-16,-17};
+	int C[8]={0,1,2,3,4,5,6,7};
 	for(i=0;i<10;i++){
-		temp=A[5+i];
-		A[5+i]=B[i];
-		B[i]=temp;
+		std::cout<<A[i]<<"\n";
+	}
+	for(i=0;i<18;i++){
+		std::cout<<B[i]<<"\n";
+	}
+	for(i=0;i<8;i++){
+		std::cout<<C[i]<<"\n";
 	}
 
-	cout<<"\nAFTER DATA EXCHANGE\n";
-	cout<<"Content of Array A:\n";
-	display(A,20);
-	cout<<"Content of Array B:\n";
-	display(B,15);
+	int i,j,temp;
+	for(i=1;i<=8;i=i+2){
+		for(j=0;j<2;j++){
+			temp=C[i-j];
+			C[i-j]=B[i];
+			B[i]=temp;
+
+			temp=C[i];
+			C[i]=B[i-j];
+			B[i-j]=temp;
+		} // Constant time, will only run 2 time 
+	} //Linear time, will run n/2 time
+	temp=A[0];
+	for(i=0;i<9;i++){
+		A[i]=A[i+1];
+	}
+	A[9]=B[17];
+	for(i=17;i>9;i=i-2){
+		B[i]=B[i-2];
+	}
+	B[9]=temp;
+	for(i=0;i<10;i++){
+		std::cout<<A[i]<<"\n";
+	}
+	for(i=0;i<18;i++){
+		std::cout<<B[i]<<"\n";
+	}
+	for(i=0;i<8;i++){
+		std::cout<<C[i]<<"\n";
+	}
+
 }
+
+//this program is O(N)
