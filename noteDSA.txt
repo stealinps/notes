@@ -1,7 +1,7 @@
 Made by Syazwan in Neovim
 Chapter 1  5  |Chapter 2 150 |Chapter 3 300
 Chapter 4 600 |Chapter 5 950 |Chapter 6 1150
-Chapter 7 1300|Chapter 8     |Chapter 9
+Chapter 7 1300|Chapter 8 1500|Chapter 9
 Chapter 10    |Extra
 
 ##Chapter 1: Intro to DSA Analysis
@@ -1403,3 +1403,98 @@ Remove(Value)
 Search(Value)
 Display()
 ListNodePointer
+
+#include <iostream>
+struct ListNode {
+	int Value;
+	ListNode *Next;
+};
+typedef ListNode* ListNodePointer;
+class List {
+	public:
+		List();
+		~List();
+		void Display();
+		bool Search(int Val);
+		void Insert(int Val);
+		void InsertInOrder(int Val);
+		void Remove(int Val);
+	private:
+        	ListNodePointer Head;
+};
+List::List() {
+	Head = NULL;
+}
+List::~List() {
+	ListNodePointer Temp;
+	while (Head) {
+		Temp = Head->Next;
+		delete Head;
+		Head = Temp;
+    }
+}
+void List::Display() {
+	ListNodePointer Temp = Head;
+	while (Temp) {
+		std::cout << Temp->Value << std::endl;
+	Temp = Temp->Next;
+    }
+}
+bool List::Search(int Val) {
+	ListNodePointer Temp = Head;
+	while (Temp && Temp->Value != Val)
+	Temp = Temp->Next;
+	if (Temp) return true;
+	else return false;
+}
+void List::Insert(int Val) {
+	ListNodePointer Temp = new ListNode;
+	Temp->Value = Val;
+	Temp->Next = Head;
+	Head = Temp;
+}
+void List::InsertInOrder(int Val) {
+	ListNodePointer Curr = Head;
+	ListNodePointer Prev = NULL;
+	ListNodePointer Temp = new ListNode;
+	Temp->Value = Val;
+	while ((Curr) && (Curr->Value < Val)) {
+	Prev = Curr;
+	Curr = Curr->Next;
+}
+	Temp->Next = Curr;
+	if (Prev) Prev->Next = Temp;
+	else Head = Temp;}
+void List::Remove(int Val) {
+	ListNodePointer Curr = Head;
+	ListNodePointer Prev = NULL;
+	while (Curr) {
+	if (Curr->Value == Val) {
+        	if (Prev == NULL) Head = Curr->Next;
+		else Prev->Next = Curr->Next;
+	delete Curr;                // in either case
+	return;
+	}
+	else {  
+		Prev = Curr;
+		Curr = Curr->Next;}}}
+int main() {
+	List A;
+	A.Insert(10);
+	A.Insert(2);
+	A.Insert(9);
+	A.Insert(5);
+	A.Insert(7);
+	A.Display();
+	A.Remove(5);
+	std::cout << std::endl;
+	A.Display();
+	List B;
+	B.InsertInOrder(10);
+	B.InsertInOrder(2);
+	B.InsertInOrder(9);
+	B.InsertInOrder(5);
+	B.InsertInOrder(7);
+	std::cout << std::endl;
+	B.Display();}
+#Chapter 8
