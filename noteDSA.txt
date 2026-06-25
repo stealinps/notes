@@ -1,7 +1,7 @@
 Made by Syazwan in Neovim
 Chapter 1  5  |Chapter 2 150 |Chapter 3 300
 Chapter 4 600 |Chapter 5 950 |Chapter 6 1150
-Chapter 7 1300|Chapter 8 1500|Chapter 9
+Chapter 7 1300|Chapter 8 1500|Chapter 9 1700
 Chapter 10    |Extra
 
 ##Chapter 1: Intro to DSA Analysis
@@ -1634,4 +1634,101 @@ int main(){
 		}
 	selected++;
 	}
+}
+
+
+#Chapter 9:Tree
+
+#include <iostream>
+struct tree{
+	int val;
+	tree *right;
+	tree *left;
+};
+class Tree{
+	public:
+		Tree();
+		~Tree();
+		void Insert(int Val);
+		void Search(int Val);
+		void Display();
+	private:
+		tree *root;
+		void InsertNode(tree* &root,int Val);
+		void SearchTree(tree* root,int Val);
+		void DisplayTree(tree* root);
+		void DeleteTree(tree* &root);
+};
+Tree::Tree(){
+	root=NULL;
+}
+Tree::~Tree(){
+	std::cout<<"Deleting the tree \n";
+	DeleteTree(root);
+}
+void Tree::DeleteTree(tree* &root){
+	if(root!=NULL){
+		DeleteTree((*root).left);
+		DeleteTree((*root).right);
+		delete root;
+		std::cout<<"Node deleted\n";
+	}
+}
+void Tree::Insert(int val){
+	InsertNode(root,val);
+}
+void Tree::InsertNode(tree* &root,int val){
+	if(root==NULL){
+		root=new tree;
+		(*root).val=val;
+		(*root).left=NULL;
+		(*root).right=NULL;
+		return;
+	} //insert val only when current node is empty
+	if(val==(*root).val) return;
+	else if(val<(*root).val) InsertNode((*root).left,val); //go to left
+	else InsertNode((*root).right,val); //go to right
+}
+void Tree::Search(int val){
+	SearchTree(root,val);
+}
+void Tree::SearchTree(tree* root,int val){
+	if(root==NULL){
+		std::cout<<"Value not found\n";
+		return;
+	}
+	else if(val==(*root).val) std::cout<<"Found\n";
+	else if(val<(*root).val) SearchTree((*root).left,val);
+	else SearchTree((*root).right,val);
+	return;
+}
+
+void Tree::Display(){
+	std::cout<<"[";
+	DisplayTree(root);
+	std::cout<<"]\n";
+
+}
+void Tree::DisplayTree(tree* root){
+	if(root==NULL){
+		return;
+	}
+	else {
+		DisplayTree((*root).left);
+		std::cout<<(*root).val<<" ";
+		DisplayTree((*root).right);
+	}
+
+}
+
+int main(){
+	std::cout<<"Hello\n";
+	Tree A;
+	A.Insert(10);
+	A.Insert(20);
+	A.Insert(5);
+	A.Insert(4);
+	A.Insert(50);
+	A.Display();
+	A.Search(4);
 }
